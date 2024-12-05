@@ -1,0 +1,62 @@
+
+<h1 style="color:aquamarine">{{title}}</h1>
+
+<div class="employee-container">
+    
+    <!--Interpolation___>directives-->
+    <p><strong>{{employeeId}} -- Name: {{employeeName}} -- Age : {{employeeAge}}</strong></p>
+
+    <!--Boolean withb *ngIf structural Directives-->
+    <p *ngIf="isManager">Manager Status: YES </p>
+    <p *ngIf="!isManager">Manager Status: NO </p>
+
+        <!--Array with *ngIf structural Directives-->
+
+        <h3>Skills : </h3>
+        <ul>
+            <li *ngFor="let s of skills">{{ s }}</li>
+        </ul>
+
+        <!--Enum Interpolation-->
+
+        <p>Position : {{ position }}</p>
+
+        <!--Object Interpolation-->
+        <h3>Address : </h3>
+        <p>{{address.street}},{{address.city}}-{{address.postalcode}}</p>
+
+        <!--Any Data Type InterPolation-->
+        <p>Extra Info: {{ extraInfo }}</p>
+
+        <!--Event Binding-->
+        <h2>Event Binding</h2>
+
+        <button (click)="hello()">Click Me</button> &nbsp;&nbsp;
+        <button (click)="clear()">Cancel</button> &nbsp;&nbsp;
+        <button (click)="toggleManagerStatus()">Toggle Manager Status</button>
+        <p> {{ message }}</p>
+
+        <p>Score Count : {{ 5+5 }}</p>
+
+        <!--Event Binding  to FUnctions With Return Value-->
+
+        <p>Today's Date : {{ convertToDate() }}</p>
+        <p>The Addition of 10 & 200 is : {{ add() }}</p>
+
+        <!--property binding - One Way-->
+        <div style="background-color: pink;">
+            <h2 [innerHTML]="info"></h2>
+            <input type="text"[value]="username" width="20px">
+            <button (click)="updateUserName()">updateUserNameUser</button>
+        </div>
+
+        <!--Two -way data binding using [(ngModel)] directive-->
+        <div>
+            <h2>Two Way Data Bindning</h2>
+            <label for="position">Position: </label>
+            <input type="text" [(ngModel)]="employeePosition"id="position">
+            <p>Updated Position: {{ employeePosition }}</p>
+        </div>
+
+
+    </div>
